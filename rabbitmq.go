@@ -22,7 +22,7 @@ func (r *RabbitMQStarter) Init(ctx infra.StarterContext) {
 	var (
 		err error
 	)
-	config := ctx.Yaml().OtherConfig[""].(*rabbitConfig.RabbitMQConfig)
+	config := ctx.Yaml().OtherConfig[rabbitConfig.DefaultPrefix].(*rabbitConfig.RabbitMQConfig)
 	// amqp://username:password@192.168.56.130:5672/vhost
 	if conn, err = amqp.Dial(fmt.Sprintf("amqp://%s:%s@%s:%d/%s", config.UserName, config.Password, config.IpAddr, config.Port, config.Vhost)); err != nil {
 		logrus.Error(err)

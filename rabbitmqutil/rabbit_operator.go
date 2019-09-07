@@ -13,7 +13,7 @@ import (
 
 type RabbitTemplate interface {
 	// 发送消息
-	Send(data []byte) error
+	Send(publishing amqp.Publishing) error
 
 	// 消息监听,
 	// autoAck表示是否自动签收，true自动签收，无论消息是否被成功消费，消息都会被丢失

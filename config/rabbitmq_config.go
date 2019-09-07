@@ -19,7 +19,7 @@ type RabbitMQConfig struct {
 	Password string `yaml:"password"` // string
 }
 
-func (r RabbitMQConfig) ConfigAdd(config map[interface{}]interface{}) {
+func (r *RabbitMQConfig) ConfigAdd(config map[interface{}]interface{}) {
 	r.IpAddr = config["ipAddr"].(string)
 	r.Port = config["port"].(int)
 	r.Vhost = config["vhost"].(string)
